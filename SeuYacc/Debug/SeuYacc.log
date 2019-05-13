@@ -1,0 +1,3 @@
+﻿  ParsingFile.cpp
+C:\Users\badga\source\repos\SeuYacc\SeuYacc\ParsingFile.cpp(63): warning C4715: 'parsingFile': not all control paths return a value
+  SeuYacc.vcxproj -> C:\Users\badga\source\repos\SeuYacc\Debug\SeuYacc.exe
