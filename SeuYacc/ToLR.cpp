@@ -35,7 +35,7 @@ void Closure(LRState& state)
 	} while (state.item.size()!=initSize);
 }
 
-LRState GOTOLR(LRState& state, string temp)
+LRState GOTOLR(LRState state, string temp)
 {
 	LRState Next;
 	Next.stateCount = genCount();
@@ -91,36 +91,46 @@ bool StateCompare(LRState state)
 	}
 	return false;
 }
-bool itemscmp(unordered_set<LRItem>& items1, unordered_set<LRItem>& items2) 
+bool itemscmp(unordered_set<LRItem> items1, unordered_set<LRItem> items2) 
 {
 	int f = 0;
 	if (items1.size() != items2.size()) return false;
-	for (auto iteral = items1.begin(); iteral != items1.end(); ++iteral) {
-		for (auto itera = items2.begin(); itera != items2.end(); ++itera) {
-			if (ItemCompare((*itera), (*iteral))) {
+	for (auto iteral = items1.begin(); iteral != items1.end(); ++iteral) 
+	{
+		for (auto itera = items2.begin(); itera != items2.end(); ++itera) 
+		{
+			if (ItemCompare((*itera), (*iteral))) 
+			{
 				f = 1;
 				break;
 			}
 		}
-		if (f == 0) return false;
+		if (f == 0) 
+			return false;
 		else f = 0;
 	}
 	return true;
 }
 bool ItemCompare(LRItem item1, LRItem item2)
 {
-	if (item1.point != item2.point) return false;
-	if (item1.pdn.first.compare(item2.pdn.first.compare)) return false;
-	if (!PredictCompare(item1.predictSymbol, item2.predictSymbol)) return false;
-	if (!PredictCompare(item1.pdn.second, item2.pdn.second)) return false;
+	if (item1.point != item2.point) 
+		return false;
+	if (item1.pdn.first.compare(item2.pdn.first.compare)) 
+		return false;
+	if (!PredictCompare(item1.predictSymbol, item2.predictSymbol)) 
+		return false;
+	if (!PredictCompare(item1.pdn.second, item2.pdn.second)) 
+		return false;
 	return true;
 }
 bool PredictCompare(vector<string> v1, vector<string> v2)
 {
-	if (v1.size() != v2.size()) return false;
+	if (v1.size() != v2.size()) 
+		return false;
 	for (auto iteral = v1.begin(); iteral != v1.end(); ++iteral)
 	{
-		if (!whethercontain((*iteral), v2)) return false;
+		if (!whethercontain((*iteral), v2)) 
+			return false;
 	}
 	return true;
 }
@@ -128,7 +138,8 @@ bool whethercontain(string& str, vector<string>& v1)
 {
 	for (auto iteral = v1.begin(); iteral != v1.end(); ++iteral)
 	{
-		if (!str.compare(*iteral)) return true;
+		if (!str.compare(*iteral)) 
+			return true;
 	}
 	return false;
 }
