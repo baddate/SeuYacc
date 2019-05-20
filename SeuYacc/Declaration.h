@@ -41,3 +41,4 @@ int Count = 0;
 unordered_set<LRState> stateTable;
 unordered_set<GOTO> gotoTable;
 vector<string> pdnLeft;
+unordered_set<LRState> lalrTable;
