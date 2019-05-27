@@ -83,7 +83,7 @@ void genFile()
 		out << "		i--;" << endl;
 		out << "	}" << endl;
 		out << "	string j = s1.erase(0, offset);" << endl;//²úÉúÊ½µÄ×ó±ß×Ö·û´®
-		out << "	int t = symbolStack.top(); << endl;//Õ»¶¥"
+		out << "	int t = symbolStack.top(); << endl;" << endl;//Õ»¶¥
 		out << "	for (auto itera = AnalyTable.begin(); itera != AnalyTable.end(); ++itera)" << endl;
 		out << "	{" << endl;
 		out << "		if (!(*itera).front().compare(j))" << endl;
