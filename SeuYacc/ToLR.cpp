@@ -4,6 +4,10 @@ extern vector<string> tokenVector;
 extern uniProduction uni_production;
 extern FirstMap firstMap;
 extern int genCount();
+bool StateCompare(LRState state);
+bool PredictCompare(vector<string> v1, vector<string> v2);
+bool itemscmp(unordered_set<LRItem> items1, unordered_set<LRItem> items2);
+bool ItemCompare(LRItem item1, LRItem item2);
 void Closure(LRState& state)
 {
 	int initSize;
@@ -115,7 +119,7 @@ bool ItemCompare(LRItem item1, LRItem item2)
 {
 	if (item1.point != item2.point) 
 		return false;
-	if (item1.pdn.first.compare(item2.pdn.first.compare)) 
+	if (item1.pdn.first.compare(item2.pdn.first))
 		return false;
 	if (!PredictCompare(item1.predictSymbol, item2.predictSymbol)) 
 		return false;
@@ -123,6 +127,17 @@ bool ItemCompare(LRItem item1, LRItem item2)
 		return false;
 	return true;
 }
+
+bool whethercontain(string& str, vector<string>& v1)
+{
+	for (auto iteral = v1.begin(); iteral != v1.end(); ++iteral)
+	{
+		if (!str.compare(*iteral))
+			return true;
+	}
+	return false;
+}
+
 bool PredictCompare(vector<string> v1, vector<string> v2)
 {
 	if (v1.size() != v2.size()) 
@@ -133,13 +148,4 @@ bool PredictCompare(vector<string> v1, vector<string> v2)
 			return false;
 	}
 	return true;
-}
-bool whethercontain(string& str, vector<string>& v1) 
-{
-	for (auto iteral = v1.begin(); iteral != v1.end(); ++iteral)
-	{
-		if (!str.compare(*iteral)) 
-			return true;
-	}
-	return false;
 }

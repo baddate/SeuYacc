@@ -30,10 +30,10 @@
     <ClCompile Include="ToLR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LRtoLALR.cpp">
+    <ClCompile Include="LRTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LRTable.cpp">
+    <ClCompile Include="GenYaccFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
