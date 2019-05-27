@@ -31,9 +31,9 @@ void SetTable()
 	{
 		for (auto iter = gotoTable.begin(); iter != gotoTable.end(); ++iter)
 		{
-			if (!(*iteral).front().compare((*iter).mid))//移进和goto，为了简单都加 "s"
+			if (!(*iteral).front().compare((*iter).mid))//移进和goto,加"s"
 			{
-				(*iteral)[(*iter).left.stateCount] = to_string((*iter).right.stateCount);
+				(*iteral)[(*iter).left.stateCount] = "s"+to_string((*iter).right.stateCount);
 			}
 		}
 		
@@ -50,8 +50,8 @@ void SetTable()
 					{
 						if (!(*itera).front().compare((*ite)))//表头==预测符
 						{
-							if ((*iteral).pdn.first.compare(startExplus))//chan'shen
-								(*itera)[(*iter).stateCount] = to_string((*iteral).pdn.second.size());
+							if ((*iteral).pdn.first.compare(startExplus))//产生式右边+#+左边
+								(*itera)[(*iter).stateCount] = to_string((*iteral).pdn.second.size()) + "#" + (*iteral).pdn.first;
 							else
 								(*itera)[(*iter).stateCount] = "accept";
 						}

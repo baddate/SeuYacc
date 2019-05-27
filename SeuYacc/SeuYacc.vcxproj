@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="First.cpp" />
+    <ClCompile Include="GenYaccFile.cpp" />
     <ClCompile Include="LRTable.cpp" />
     <ClCompile Include="ParsingFile.cpp" />
     <ClCompile Include="Source.cpp" />
