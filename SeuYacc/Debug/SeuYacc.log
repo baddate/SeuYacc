@@ -1,7 +1,7 @@
 ﻿  First.cpp
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(27): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(22): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(28): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(34): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.20.27508\include\unordered_set(91): error C2280: 'std::hash<_Kty>::hash(const std::hash<_Kty> &)': attempting to reference a deleted function
           with
           [
@@ -27,20 +27,20 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\1
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
           with
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
           with
           [
               _Kty=GOTO
           ]
   GenYaccFile.cpp
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(27): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(22): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(28): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(34): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.20.27508\include\unordered_set(91): error C2280: 'std::hash<_Kty>::hash(const std::hash<_Kty> &)': attempting to reference a deleted function
           with
           [
@@ -66,20 +66,20 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\1
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
           with
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
           with
           [
               _Kty=GOTO
           ]
   LRTable.cpp
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(27): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(22): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(28): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(34): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.20.27508\include\unordered_set(91): error C2280: 'std::hash<_Kty>::hash(const std::hash<_Kty> &)': attempting to reference a deleted function
           with
           [
@@ -105,20 +105,20 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\1
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
           with
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
           with
           [
               _Kty=GOTO
           ]
   Main.cpp
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(27): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(22): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(28): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(34): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.20.27508\include\unordered_set(91): error C2280: 'std::hash<_Kty>::hash(const std::hash<_Kty> &)': attempting to reference a deleted function
           with
           [
@@ -144,20 +144,20 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\1
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
           with
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
           with
           [
               _Kty=GOTO
           ]
   ParsingFile.cpp
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(27): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(22): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(28): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(34): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.20.27508\include\unordered_set(91): error C2280: 'std::hash<_Kty>::hash(const std::hash<_Kty> &)': attempting to reference a deleted function
           with
           [
@@ -183,20 +183,20 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\1
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
           with
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
           with
           [
               _Kty=GOTO
           ]
   ToLR.cpp
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(27): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(22): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(28): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(34): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.20.27508\include\unordered_set(91): error C2280: 'std::hash<_Kty>::hash(const std::hash<_Kty> &)': attempting to reference a deleted function
           with
           [
@@ -222,12 +222,12 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\1
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to function template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>::unordered_set(void)' being compiled
           with
           [
               _Kty=GOTO
           ]
-  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(43): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
+  C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(44): note: see reference to class template instantiation 'std::unordered_set<GOTO,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<_Kty>>' being compiled
           with
           [
               _Kty=GOTO
