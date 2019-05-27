@@ -1,8 +1,18 @@
 #include"Declaration.h"
-extern vector<string> tokenVector;
-extern FirstMap firstMap;
-bool judgeToken(vector<string>& str, string val);
-extern uniProduction uni_production;
+
+extern uniProduction uni_production;//所有产生式
+FirstMap firstMap;//所有计算出的符号first集
+extern vector<string> tokenVector;//终结符
+bool judgeToken(vector<string>& str, string val)
+{
+	for (auto iteral = str.begin(); iteral != str.end(); ++iteral)
+	{
+		if (!val.compare(*iteral))
+			return true;
+	}
+	return false;
+}
+
 void calcFirst(string symbol, set<string> &temp)
 {
 	
@@ -31,12 +41,3 @@ void mapFirst()
 	}
 }
 
-bool judgeToken(vector<string> &str,string val)
-{
-	for (auto iteral = str.begin(); iteral != str.end(); ++iteral)
-	{
-		if (!val.compare(*iteral))
-			return true;
-	}
-	return false;
-}

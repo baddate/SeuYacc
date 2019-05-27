@@ -24,16 +24,10 @@
     <ClCompile Include="First.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ToLR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LRTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GenYaccFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

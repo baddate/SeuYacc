@@ -1,13 +1,23 @@
 #include"Declaration.h"
-extern bool judgeToken(vector<string>& str, string val);
-extern vector<string> tokenVector;
-extern uniProduction uni_production;
-extern FirstMap firstMap;
-extern int genCount();
+
 bool StateCompare(LRState state);
 bool PredictCompare(vector<string> v1, vector<string> v2);
-bool itemscmp(set<LRItem> items1, set<LRItem> items2);
+bool itemscmp(set<LRItem, itemSET> items1, set<LRItem, itemSET> items2);
 bool ItemCompare(LRItem item1, LRItem item2);
+extern bool judgeToken(vector<string>& str, string val);
+extern uniProduction uni_production;//所有产生式
+extern vector<string> tokenVector;//终结符
+set<LRState, stateSET> stateTable;//所有状态
+extern vector<string> pdnLeft;//非终结符
+int Counts = 0;//计状态数
+string startExplus = "startExplus";//S'
+extern FirstMap firstMap;//所有计算出的符号first集
+extern string startExp;//开始符号
+int genCount()
+{
+	return Counts++;
+}
+
 void Closure(LRState& state)
 {
 	int initSize;
@@ -95,7 +105,7 @@ bool StateCompare(LRState state)
 	}
 	return false;
 }
-bool itemscmp(set<LRItem> items1, set<LRItem> items2) 
+bool itemscmp(set<LRItem,itemSET> items1, set<LRItem, itemSET> items2)
 {
 	int f = 0;
 	if (items1.size() != items2.size()) return false;

@@ -10,21 +10,42 @@
 
 using namespace std;
 
-
-
 typedef pair<string, vector<string>> Production;//一个产生式做一个类型
 typedef vector<Production> uniProduction;//所有产生式做一个类型
 typedef map<string, set<string>> FirstMap;//非终结符和它的first集
+
 typedef	struct LRItem {
 	Production pdn;
 	vector<string> predictSymbol;
 	int point;
 };
  
+struct itemSET
+{
+	bool operator()(const LRItem& left, const LRItem& right)
+	{
+		if (left.point < right.point)
+			return true;
+		else
+			return false;
+	}
+};
+
 
 typedef struct LRState{
-	set<LRItem> item;
+	set<LRItem, itemSET> item;
 	int stateCount; 
+};
+
+struct stateSET
+{
+	bool operator()(const LRState& left, const LRState& right)
+	{
+		if (left.stateCount < right.stateCount)
+			return true;
+		else
+			return false;
+	}
 };
 
 typedef struct GOTO {
@@ -33,15 +54,23 @@ typedef struct GOTO {
 	string mid;
 };
 
-string startExplus = "startExplus";//S'
-string startExp;//开始符号
-vector<string> tokenVector;//终结符
-FirstMap firstMap;//所有计算出的符号first集
-uniProduction uni_production;//所有产生式
-vector<string> functionVector;//第三部分
-int Count = 0;//计状态数
-set<LRState> stateTable;//所有状态
-set<GOTO> gotoTable;//所有goto
-vector<string> pdnLeft;//非终结符
-vector<vector<string>> AnalyTable;//LR分析表
+struct gotoSET
+{
+	bool operator()(const GOTO& left, const GOTO& right)
+	{
+		if (left.left.stateCount < right.left.stateCount)
+			return true;
+		else
+			return false;
+	}
+};
+
+
+
+
+
+
+
+
+
 

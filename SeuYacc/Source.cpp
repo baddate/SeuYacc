@@ -1,8 +1,6 @@
-#include<iostream>
-#include<vector>
-#define TEMP "tem"
-using namespace std;
+#include"Declaration.h"
+
 int main()
 {
-	cout <<TEMP<<"\"";
+	cout <<"\"";
 }

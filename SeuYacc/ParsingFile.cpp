@@ -1,9 +1,11 @@
 #include"Declaration.h"
 
-extern vector<string> functionVector;
-//extern string startExp;
-
-int parsingFile(const string& fileName, vector<string> &tokenVector, uniProduction &uni_production) 
+vector<string> functionVector;//第三部分
+vector<string> pdnLeft;//非终结符
+vector<string> tokenVector;//终结符
+string startExp;//开始符号
+uniProduction uni_production;//所有产生式
+int parsingFile(const string& fileName) 
 {
 	ifstream in;
 	in.open(fileName, ios::in);
