@@ -20,21 +20,22 @@ int genCount()
 
 void Closure(LRState& state)
 {
+	//cout << "32" << endl;
 	int initSize;
 	do
 	{	
 		initSize = state.item.size();
 		for (auto iteral = state.item.begin(); iteral != state.item.end(); ++iteral)
 		{
-			if (!judgeToken(tokenVector, (*iteral).pdn.second[(*iteral).point]))
+			if ((*iteral).point != (*iteral).pdn.second.size() && !judgeToken(tokenVector, (*iteral).pdn.second[(*iteral).point]))
 			{
 				for (auto temp = uni_production.begin(); temp != uni_production.end(); ++temp)
 				{
 					if (!(*iteral).pdn.second[(*iteral).point].compare((*temp).first))
 					{
 						LRItem test;
-						for (auto tmp = firstMap[(*iteral).pdn.second[(*iteral).point + 1]].begin();
-							tmp != firstMap[(*iteral).pdn.second[(*iteral).point + 1]].end(); ++tmp)
+						for (auto tmp = firstMap[(*iteral).pdn.second[(*iteral).point]].begin();
+							tmp != firstMap[(*iteral).pdn.second[(*iteral).point]].end(); ++tmp)
 						{
 							test.predictSymbol.push_back((*tmp));
 						}
@@ -51,6 +52,7 @@ void Closure(LRState& state)
 
 LRState GOTOLR(LRState state, string temp)
 {
+	//cout << "22" << endl;
 	LRState Next;
 	Next.stateCount = genCount();
 	for (auto iteral = state.item.begin(); iteral != state.item.end(); ++iteral)
@@ -64,8 +66,10 @@ LRState GOTOLR(LRState state, string temp)
 	Closure(Next);
 	return Next;
 }
+
 void GenLRTable()
 {
+	//cout << "12" << endl;
 	int initSize;
 	LRItem item;
 	item.point = 0;
@@ -105,6 +109,7 @@ bool StateCompare(LRState state)
 	}
 	return false;
 }
+
 bool itemscmp(set<LRItem,itemSET> items1, set<LRItem, itemSET> items2)
 {
 	int f = 0;

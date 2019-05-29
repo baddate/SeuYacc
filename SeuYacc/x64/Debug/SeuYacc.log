@@ -1,0 +1,6 @@
+﻿  Source.cpp
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(38): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(55): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Source.cpp(55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  SeuYacc.vcxproj -> C:\Users\badga\Desktop\SeuYacc\x64\Debug\SeuYacc.exe

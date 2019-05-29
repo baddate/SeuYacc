@@ -55,19 +55,20 @@ int parsingFile(const string& fileName)
 				cout << "ERROR: No \":\"!" << endl;
 				return -1;
 			}
-			in >> temp;
-			production.second = expRight;
-			while (temp != ";")
+			//in >> temp;
+
+			do
 			{
-				while (temp != "|")
+				in >> temp;
+				while (temp != "|" && temp != ";")
 				{
 					production.second.push_back(temp);
+					//cout << temp << endl;
 					in >> temp;
 				}
 				uni_production.push_back(production);
-				production.second = expRight;
-				in >> temp;
-			}
+				production.second.clear();
+			} while (temp != ";");
 			in >> temp;
 		}
 	}
@@ -76,11 +77,8 @@ int parsingFile(const string& fileName)
 		while (!in.eof())
 		{
 			getline(in, temp);
-			while (temp.empty())
-			{
-				getline(in, temp);
-			}
 			functionVector.push_back(temp);
 		}
 	}
+	return 0;
 }

@@ -6,21 +6,22 @@ extern vector<string> pdnLeft;//非终结符
 extern vector<string> tokenVector;//终结符
 vector<vector<string>> AnalyTable;//LR分析表
 extern string startExplus;//S'
+extern int Counts;
 void InitTable()
 {
 	for (auto iteral = tokenVector.begin(); iteral != tokenVector.end(); ++iteral)
 	{
-		vector<string> temp;
-		temp.push_back((*iteral));
+		vector<string> temp(Counts);
+		temp[0]=(*iteral);
 		AnalyTable.push_back(temp);
 	}
-	vector<string> temp;
-	temp.push_back("$");
+	vector<string> temp(Counts);
+	temp[0]="$";
 	AnalyTable.push_back(temp);
 	for (auto iteral = pdnLeft.begin(); iteral != pdnLeft.end(); ++iteral)
 	{
-		vector<string> temp;
-		temp.push_back((*iteral));
+		vector<string> temp(Counts);
+		temp[0]=(*iteral);
 		AnalyTable.push_back(temp);
 	}
 }
