@@ -23,6 +23,7 @@ int parsingFile(const string& fileName)
 		tokenVector.push_back(temp);
 		in >> temp;
 	}
+
 	while (temp != "%start" && temp != "%%")
 	{
 		if (temp == "%left")
@@ -44,7 +45,7 @@ int parsingFile(const string& fileName)
 		in >> temp;
 		while (temp != "%%")
 		{
-			vector<string> expRight;//产生式右部
+			//vector<string> expRight;//产生式右部
 			Production production;//一个产生式
 			production.first = temp;
 			pdnLeft.push_back(temp);

@@ -164,6 +164,10 @@
   <ItemGroup>
     <ClInclude Include="Declaration.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="test.y" />
+    <None Include="yacc.y" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
