@@ -1,1 +1,1 @@
-INT ;
+INT IDENTIFIER ;

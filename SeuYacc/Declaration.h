@@ -24,7 +24,7 @@ struct itemSET
 {
 	bool operator()(const LRItem& left, const LRItem& right)
 	{
-		if (left.point < right.point)
+		if (left.pdn.first < right.pdn.first)
 			return true;
 		else
 			return false;

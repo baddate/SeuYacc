@@ -1,11 +1,14 @@
 #include"Declaration.h"
 extern vector<vector<string>> AnalyTable;//LR分析表
+extern set<GOTO, gotoSET> gotoTable;//所有goto
 extern int parsingFile(const string& fileName);
 extern void mapFirst();
 extern void GenLRTable();
 extern void InitTable();
 extern void SetTable();
 extern void genFile();
+extern set<LRState, stateSET> stateTable;//所有状态
+extern uniProduction uni_production;//所有产生式
 int main()
 {
 
@@ -14,14 +17,22 @@ int main()
 	GenLRTable();
 	InitTable();
 	SetTable();
-	genFile();
-	cout << AnalyTable.size() <<"  |  "<< AnalyTable.front().size() << endl;
+	//genFile();
+	cout << stateTable.begin()->item.size()<<"  |  "<< AnalyTable.front().size() << endl;
+	cout << stateTable.size() << "  sssssss  "<< endl;
+	for (auto iteral = gotoTable.begin(); iteral != gotoTable.end(); ++iteral)
+	{
+		
+		cout << iteral->left.stateCount << " " << iteral->mid << " " << iteral->right.stateCount;
+		cout << endl;
+	}
 	ifstream lex_out;
 	lex_out.open("test.l", ios::in);
 	string temp;
 	vector<string> Lex_OUT;
 	do {
 		lex_out >> temp;
+		cout << temp;
 		Lex_OUT.push_back(temp);
 	} while (!lex_out.eof());
 	stack<int> stateStack;

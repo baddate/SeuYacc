@@ -1,7 +1,7 @@
 #include"Declaration.h"
 
 extern set<LRState, stateSET> stateTable;//所有状态
-set<GOTO, gotoSET> gotoTable;//所有goto
+extern set<GOTO, gotoSET> gotoTable;//所有goto
 extern vector<string> pdnLeft;//非终结符
 extern vector<string> tokenVector;//终结符
 vector<vector<string>> AnalyTable;//LR分析表
@@ -34,7 +34,7 @@ void SetTable()
 		{
 			if (!(*iteral).front().compare((*iter).mid))//移进和goto,加"s"
 			{
-				(*iteral)[(*iter).left.stateCount] = "s"+to_string((*iter).right.stateCount);
+				(*iteral)[(*iter).left.stateCount + 1] = "s"+to_string((*iter).right.stateCount);
 			}
 		}
 		
@@ -52,9 +52,9 @@ void SetTable()
 						if (!(*itera).front().compare((*ite)))//表头==预测符
 						{
 							if ((*iteral).pdn.first.compare(startExplus))//产生式右边+#+左边
-								(*itera)[(*iter).stateCount] = to_string((*iteral).pdn.second.size()) + "#" + (*iteral).pdn.first;
+								(*itera)[(*iter).stateCount + 1] = to_string((*iteral).pdn.second.size()) + "#" + (*iteral).pdn.first;
 							else
-								(*itera)[(*iter).stateCount] = "accept";
+								(*itera)[(*iter).stateCount +1] = "accept";
 						}
 
 					}
