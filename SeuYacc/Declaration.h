@@ -22,12 +22,64 @@ typedef	struct LRItem {
  
 struct itemSET
 {
-	bool operator()(const LRItem& left, const LRItem& right)
+	bool operator () (const LRItem left, const LRItem right)
 	{
-		if (left.pdn.first < right.pdn.first)
-			return true;
+		int flag = 0;
+		if (left.point == right.point)
+		{
+			if (left.predictSymbol.size() == right.predictSymbol.size())
+			{
+				for (auto iteral = left.predictSymbol.begin(); iteral != left.predictSymbol.end(); ++iteral)
+				{
+					flag = 0;
+					for (auto itera = right.predictSymbol.begin(); itera != right.predictSymbol.end(); ++itera)
+					{
+						if (!iteral->compare(*itera))
+						{
+							flag = 1;
+							break;
+						}
+
+					}
+					if (flag == 0)
+						return false;
+				}
+
+				if (!left.pdn.first.compare(right.pdn.first))
+				{
+					if (left.pdn.second.size() == right.pdn.second.size())
+					{
+						for (auto iteral = left.pdn.second.begin(); iteral != left.pdn.second.end(); ++iteral)
+						{
+							flag = 0;
+							for (auto itera = right.pdn.second.begin(); itera != right.pdn.second.end(); ++itera)
+							{
+								if (!iteral->compare(*itera))
+								{
+									flag = 1;
+									break;
+								}
+
+							}
+							if (flag == 0)
+								return false;
+						}
+						return true;
+					}
+					else
+						return false;
+
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+		
+		}
 		else
 			return false;
+		
 	}
 };
 
@@ -39,7 +91,7 @@ typedef struct LRState{
 
 struct stateSET
 {
-	bool operator()(const LRState& left, const LRState& right)
+	bool operator()(const LRState left, const LRState right)
 	{
 		if (left.stateCount < right.stateCount)
 			return true;
@@ -56,7 +108,7 @@ typedef struct GOTO {
 
 struct gotoSET
 {
-	bool operator()(const GOTO& left, const GOTO& right)
+	bool operator()(const GOTO left, const GOTO right)
 	{
 		if (left.left.stateCount < right.left.stateCount)
 			return true;

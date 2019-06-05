@@ -45,7 +45,7 @@ void Closure(LRState& state)
 						test.point = 0;
 						test.pdn = (*temp);
 						state.item.insert(test);
-						cout << state.item.insert(test).second << "  $   ";
+						cout << state.item.size() << "  $   ";
 					}
 				}
 				
