@@ -5,7 +5,7 @@ bool StateCompare(LRState state);
 bool PredictCompare(vector<string> v1, vector<string> v2);
 bool itemscmp(set<LRItem, itemSET> items1, set<LRItem, itemSET> items2);
 bool ItemCompare(LRItem item1, LRItem item2);
-extern bool judgeToken(vector<string>& str, string val);
+bool judgeToken(vector<string>& str, string val);
 extern uniProduction uni_production;//所有产生式
 extern vector<string> tokenVector;//终结符
 set<LRState, stateSET> stateTable;//所有状态
@@ -44,8 +44,8 @@ void Closure(LRState& state)
 						}
 						test.point = 0;
 						test.pdn = (*temp);
-						state.item.insert(test);
-						cout << state.item.size() << "  $   ";
+						//state.item.insert(test);
+						cout << state.item.insert(test).second << "  $   ";
 					}
 				}
 				
@@ -172,39 +172,6 @@ LRState StateFind(LRState state)
 	}
 }
 
-bool itemscmp(set<LRItem,itemSET> items1, set<LRItem, itemSET> items2)
-{
-	int f = 0;
-	if (items1.size() != items2.size()) return false;
-	for (auto iteral = items1.begin(); iteral != items1.end(); ++iteral) 
-	{
-		for (auto itera = items2.begin(); itera != items2.end(); ++itera) 
-		{
-			if (ItemCompare((*itera), (*iteral))) 
-			{
-				f = 1;
-				break;
-			}
-		}
-		if (f == 0) 
-			return false;
-		else f = 0;
-	}
-	return true;
-}
-bool ItemCompare(LRItem item1, LRItem item2)
-{
-	if (item1.point != item2.point) 
-		return false;
-	if (item1.pdn.first.compare(item2.pdn.first)) 
-		return false;
-	if (!PredictCompare(item1.predictSymbol, item2.predictSymbol)) 
-		return false;
-	if (!PredictCompare(item1.pdn.second, item2.pdn.second)) 
-		return false;
-	return true;
-}
-
 bool whethercontain(string& str, vector<string>& v1)
 {
 	for (auto iteral = v1.begin(); iteral != v1.end(); ++iteral)
@@ -214,15 +181,50 @@ bool whethercontain(string& str, vector<string>& v1)
 	}
 	return false;
 }
-
 bool PredictCompare(vector<string> v1, vector<string> v2)
 {
-	if (v1.size() != v2.size()) 
+	if (v1.size() != v2.size())
 		return false;
 	for (auto iteral = v1.begin(); iteral != v1.end(); ++iteral)
 	{
-		if (!whethercontain((*iteral), v2)) 
+		if (!whethercontain((*iteral), v2))
 			return false;
+	}
+	return true;
+}
+
+bool ItemCompare(LRItem item1, LRItem item2)
+{
+	if (item1.point != item2.point)
+		return false;
+	if (item1.pdn.first.compare(item2.pdn.first))
+		return false;
+	if (!PredictCompare(item1.predictSymbol, item2.predictSymbol))
+		return false;
+	if (!PredictCompare(item1.pdn.second, item2.pdn.second))
+		return false;
+	return true;
+}
+
+
+
+bool itemscmp(set<LRItem, itemSET> items1, set<LRItem, itemSET> items2)
+{
+	int f = 0;
+	if (items1.size() != items2.size()) return false;
+	for (auto iteral = items1.begin(); iteral != items1.end(); ++iteral)
+	{
+		for (auto itera = items2.begin(); itera != items2.end(); ++itera)
+		{
+			if (ItemCompare((*itera), (*iteral)))
+			{
+				f = 1;
+				break;
+			}
+		}
+		if (f == 0)
+			return false;
+		else f = 0;
 	}
 	return true;
 }

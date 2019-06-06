@@ -11,7 +11,6 @@ extern set<LRState, stateSET> stateTable;//所有状态
 extern uniProduction uni_production;//所有产生式
 int main()
 {
-
 	parsingFile("test.txt");
 	mapFirst();
 	GenLRTable();
@@ -22,7 +21,6 @@ int main()
 	cout << stateTable.size() << "  sssssss  "<< endl;
 	for (auto iteral = gotoTable.begin(); iteral != gotoTable.end(); ++iteral)
 	{
-		
 		cout << iteral->left.stateCount << " " << iteral->mid << " " << iteral->right.stateCount;
 		cout << endl;
 	}
