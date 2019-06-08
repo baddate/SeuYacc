@@ -33,6 +33,7 @@ void calcFirst(string symbol, set<string> &temp)
 				temp.insert((*iteral).second.front());
 				if (temp.find((*iteral).second.front())!= temp.end())
 					break;
+				cout << "F" << endl;
 				calcFirst((*iteral).second.front(), temp);
 			}
 		}
@@ -41,12 +42,16 @@ void calcFirst(string symbol, set<string> &temp)
 
 void mapFirst()
 {
-	cout << "mapFirst1" << endl;
+	cout << "mapFirst()" << endl;
 	for (auto iteral = uni_production.begin(); iteral != uni_production.end(); ++iteral)
 	{
 		set<string> temp;
 		calcFirst((*iteral).first, temp);
-		firstMap.insert(pair<string, set<string>> ((*iteral).first, temp));
+		pair<string, set<string>> pa;
+		pa.first = iteral->first;
+		pa.second = temp;
+		firstMap.insert(pa);
 	}
+	cout << "firstMapSize:" << firstMap.size() << endl;
 }
 

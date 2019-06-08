@@ -1,9 +1,9 @@
 #include"Declaration.h"
 
-set<GOTO, gotoSET> gotoTable;//所有goto
+set<GOTO> gotoTable;//所有goto
 bool StateCompare(LRState state);
 bool PredictCompare(vector<string> v1, vector<string> v2);
-bool itemscmp(set<LRItem, itemSET> items1, set<LRItem, itemSET> items2);
+bool itemscmp(vector<LRItem> items1, vector<LRItem> items2);
 bool ItemCompare(LRItem item1, LRItem item2);
 bool judgeToken(vector<string>& str, string val);
 extern uniProduction uni_production;//所有产生式
@@ -15,6 +15,7 @@ string startExplus = "startExplus";//S'
 extern FirstMap firstMap;//所有计算出的符号first集
 extern string startExp;//开始符号
 LRState StateFind(LRState state);
+bool inStateTable(vector<LRItem> items1, LRItem item);
 int genCount()
 {
 	return Counts++;
@@ -22,11 +23,12 @@ int genCount()
 
 void Closure(LRState& state)
 {
-	//cout << "32" << endl;
+
 	int initSize;
 	do
 	{	
-		initSize = state.item.size();
+		initSize = 0;
+		
 		//cout << initSize << " ";
 		for (auto iteral = state.item.begin(); iteral != state.item.end(); ++iteral)
 		{
@@ -34,7 +36,7 @@ void Closure(LRState& state)
 			{
 				for (auto temp = uni_production.begin(); temp != uni_production.end(); ++temp)
 				{
-					if (!(*iteral).pdn.second[(*iteral).point].compare((*temp).first))
+					if ((*iteral).point != (*iteral).pdn.second.size() && !iteral->pdn.second[(*iteral).point].compare((*temp).first))
 					{
 						LRItem test;
 						for (auto tmp = firstMap[(*iteral).pdn.second[(*iteral).point]].begin();
@@ -44,14 +46,20 @@ void Closure(LRState& state)
 						}
 						test.point = 0;
 						test.pdn = (*temp);
-						//state.item.insert(test);
-						cout << state.item.insert(test).second << "  $   ";
+						if (!inStateTable(state.item, test))
+						{
+							state.item.push_back(test);
+							initSize++;
+							iteral = state.item.begin();
+							//cout << "Statess size: "<<state.item.size() << endl;
+						}
+						
 					}
 				}
 				
 			}
 		}
-	} while (state.item.size()!=initSize);
+	} while (initSize > 0);
 
 }
 
@@ -62,13 +70,17 @@ LRState GOTOLR(LRState state, string temp)
 	Next.stateCount = genCount();
 	for (auto iteral = state.item.begin(); iteral != state.item.end(); ++iteral)
 	{
-		if (iteral->pdn.second.size() != iteral->point && !iteral->pdn.second[iteral->point].compare(temp))
+		if (iteral->pdn.second.size() != iteral->point)
 		{
-			LRItem tmp;
-			tmp.pdn = (*iteral).pdn;
-			tmp.point = (*iteral).point + 1;
-			tmp.predictSymbol = (*iteral).predictSymbol;
-			Next.item.insert(tmp);
+			if (!iteral->pdn.second[iteral->point].compare(temp))
+			{
+				LRItem tmp;
+				tmp.pdn = (*iteral).pdn;
+				tmp.point = (*iteral).point + 1;
+				tmp.predictSymbol = (*iteral).predictSymbol;
+				Next.item.push_back(tmp);
+			}
+			
 		}	
 	}
 	Closure(Next);
@@ -87,7 +99,7 @@ void GenLRTable()
 	item.pdn.second.push_back(startExp);
 	LRState temp;
 	temp.stateCount = 0;
-	temp.item.insert(item);
+	temp.item.push_back(item);
 	Closure(temp);
 	stateTable.insert(temp);
 	do
@@ -150,7 +162,6 @@ void GenLRTable()
 			}
 		}
 	} while (stateTable.size() != initSize);
-	
 }
 
 bool StateCompare(LRState state)
@@ -208,7 +219,7 @@ bool ItemCompare(LRItem item1, LRItem item2)
 
 
 
-bool itemscmp(set<LRItem, itemSET> items1, set<LRItem, itemSET> items2)
+bool itemscmp(vector<LRItem> items1, vector<LRItem> items2)
 {
 	int f = 0;
 	if (items1.size() != items2.size()) return false;
@@ -227,4 +238,13 @@ bool itemscmp(set<LRItem, itemSET> items1, set<LRItem, itemSET> items2)
 		else f = 0;
 	}
 	return true;
+}
+bool inStateTable(vector<LRItem> items1, LRItem item)
+{
+	for (auto iteral = items1.begin(); iteral != items1.end(); ++iteral)
+	{
+		if (ItemCompare(*iteral, item))
+			return true;
+	}
+	return false;
 }

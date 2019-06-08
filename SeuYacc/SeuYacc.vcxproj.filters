@@ -43,5 +43,13 @@
     <None Include="test.l">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="minic.y">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="yacc.y">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

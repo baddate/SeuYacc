@@ -11,12 +11,14 @@ extern set<LRState, stateSET> stateTable;//所有状态
 extern uniProduction uni_production;//所有产生式
 int main()
 {
-	parsingFile("test.txt");
+	parsingFile("yacc.y");
 	mapFirst();
 	GenLRTable();
 	InitTable();
 	SetTable();
 	//genFile();
+	cout << endl;
+
 	cout << stateTable.begin()->item.size()<<"  |  "<< AnalyTable.front().size() << endl;
 	cout << stateTable.size() << "  sssssss  "<< endl;
 	for (auto iteral = gotoTable.begin(); iteral != gotoTable.end(); ++iteral)
