@@ -8,7 +8,7 @@ bool ItemCompare(LRItem item1, LRItem item2);
 bool judgeToken(vector<string>& str, string val);
 extern uniProduction uni_production;//所有产生式
 extern vector<string> tokenVector;//终结符
-set<LRState, stateSET> stateTable;//所有状态
+vector<LRState> stateTable;//所有状态
 extern vector<string> pdnLeft;//非终结符
 int Counts = 0;//计状态数
 string startExplus = "startExplus";//S'
@@ -101,10 +101,10 @@ void GenLRTable()
 	temp.stateCount = 0;
 	temp.item.push_back(item);
 	Closure(temp);
-	stateTable.insert(temp);
+	stateTable.push_back(temp);
 	do
 	{
-		initSize = stateTable.size();
+		initSize = 0;
 		//cout << initSize << " ";
 		for (auto iteral = stateTable.begin(); iteral != stateTable.end(); ++iteral)
 		{
@@ -120,7 +120,9 @@ void GenLRTable()
 						got.mid = (*it1);
 						got.right = tem;
 						gotoTable.push_back(got);
-						stateTable.insert(tem);
+						stateTable.push_back(tem);
+						iteral = stateTable.begin();
+						initSize++;
 					}
 					else
 					{
@@ -147,7 +149,9 @@ void GenLRTable()
 							got.mid = (*it2);
 							got.right = tem;
 							gotoTable.push_back(got);
-							stateTable.insert(tem);
+							stateTable.push_back(tem);
+							iteral = stateTable.begin();
+							initSize++;
 						}
 						else
 						{
@@ -161,7 +165,7 @@ void GenLRTable()
 				}
 			}
 		}
-	} while (stateTable.size() != initSize);
+	} while (initSize > 0);
 }
 
 bool StateCompare(LRState state)

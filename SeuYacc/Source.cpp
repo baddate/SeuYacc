@@ -7,7 +7,7 @@ extern void GenLRTable();
 extern void InitTable();
 extern void SetTable();
 extern void genFile();
-extern set<LRState, stateSET> stateTable;//所有状态
+extern vector<LRState> stateTable;//所有状态
 extern uniProduction uni_production;//所有产生式
 int main()
 {
