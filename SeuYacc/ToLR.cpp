@@ -1,6 +1,6 @@
 #include"Declaration.h"
 
-set<GOTO> gotoTable;//所有goto
+vector<GOTO> gotoTable;//所有goto
 bool StateCompare(LRState state);
 bool PredictCompare(vector<string> v1, vector<string> v2);
 bool itemscmp(vector<LRItem> items1, vector<LRItem> items2);
@@ -119,7 +119,7 @@ void GenLRTable()
 						got.left = (*iteral);
 						got.mid = (*it1);
 						got.right = tem;
-						gotoTable.insert(got);
+						gotoTable.push_back(got);
 						stateTable.insert(tem);
 					}
 					else
@@ -128,7 +128,7 @@ void GenLRTable()
 						got.left = (*iteral);
 						got.mid = (*it1);
 						got.right = StateFind(tem);
-						gotoTable.insert(got);
+						gotoTable.push_back(got);
 					}
 				}
 			}
@@ -146,7 +146,7 @@ void GenLRTable()
 							got.left = (*iteral);
 							got.mid = (*it2);
 							got.right = tem;
-							gotoTable.insert(got);
+							gotoTable.push_back(got);
 							stateTable.insert(tem);
 						}
 						else
@@ -155,7 +155,7 @@ void GenLRTable()
 							got.left = (*iteral);
 							got.mid = (*it2);
 							got.right = StateFind(tem);
-							gotoTable.insert(got);
+							gotoTable.push_back(got);
 						}
 					}
 				}

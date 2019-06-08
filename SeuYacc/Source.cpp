@@ -1,6 +1,6 @@
 #include"Declaration.h"
 extern vector<vector<string>> AnalyTable;//LR分析表
-extern set<GOTO, gotoSET> gotoTable;//所有goto
+extern vector<GOTO> gotoTable;//所有goto
 extern int parsingFile(const string& fileName);
 extern void mapFirst();
 extern void GenLRTable();

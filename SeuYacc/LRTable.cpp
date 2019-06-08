@@ -1,7 +1,7 @@
 #include"Declaration.h"
 
 extern set<LRState, stateSET> stateTable;//所有状态
-extern set<GOTO, gotoSET> gotoTable;//所有goto
+extern vector<GOTO> gotoTable;//所有goto
 extern vector<string> pdnLeft;//非终结符
 extern vector<string> tokenVector;//终结符
 vector<vector<string>> AnalyTable;//LR分析表

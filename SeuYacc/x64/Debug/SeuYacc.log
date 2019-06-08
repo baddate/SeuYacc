@@ -1,7 +1,29 @@
-﻿  ToLR.cpp
+﻿  First.cpp
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(102): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+  GenYaccFile.cpp
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(102): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+  LRTable.cpp
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(102): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+  ParsingFile.cpp
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(102): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+  Source.cpp
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(102): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Source.cpp(66): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  ToLR.cpp
 C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
 C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
 C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(102): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
 C:\Users\badga\Desktop\SeuYacc\SeuYacc\ToLR.cpp(107): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
 C:\Users\badga\Desktop\SeuYacc\SeuYacc\ToLR.cpp(184): warning C4715: 'StateFind': not all control paths return a value
   SeuYacc.vcxproj -> C:\Users\badga\Desktop\SeuYacc\x64\Debug\SeuYacc.exe

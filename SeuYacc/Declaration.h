@@ -101,22 +101,6 @@ typedef struct GOTO {
 	string mid;
 };
 
-struct gotoSET
-{
-	bool operator()(const GOTO left, const GOTO right)
-	{
-		if (left.mid == right.mid)
-		{
-			if (left.left.stateCount != right.left.stateCount)
-				return false;
-			if (left.right.stateCount != right.right.stateCount)
-				return false;
-			return true;
-		}
-		else
-			return false;
-	}
-};
 
 
 
