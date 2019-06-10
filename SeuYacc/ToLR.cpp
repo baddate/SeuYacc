@@ -32,6 +32,7 @@ void Closure(LRState& state)
 		//cout << initSize << " ";
 		for (auto iteral = state.item.begin(); iteral != state.item.end(); ++iteral)
 		{
+			int tet = iteral - state.item.begin();
 			if ((*iteral).point != (*iteral).pdn.second.size() && !judgeToken(tokenVector, (*iteral).pdn.second[(*iteral).point]))
 			{
 				for (auto temp = uni_production.begin(); temp != uni_production.end(); ++temp)
@@ -50,7 +51,7 @@ void Closure(LRState& state)
 						{
 							state.item.push_back(test);
 							initSize++;
-							iteral = state.item.begin();
+							iteral = state.item.begin() + tet;
 							//cout << "Statess size: "<<state.item.size() << endl;
 						}
 						
@@ -108,6 +109,7 @@ void GenLRTable()
 		//cout << initSize << " ";
 		for (auto iteral = stateTable.begin(); iteral != stateTable.end(); ++iteral)
 		{
+			int tet = iteral - stateTable.begin();
 			for (auto it1 = pdnLeft.begin(); it1 != pdnLeft.end(); ++it1)//·ÇÖÕ½á·û
 			{
 				LRState tem = GOTOLR((*iteral), (*it1));
@@ -121,27 +123,30 @@ void GenLRTable()
 						got.right = tem;
 						gotoTable.push_back(got);
 						stateTable.push_back(tem);
-						iteral = stateTable.begin();
+						iteral = stateTable.begin() + tet;
 						initSize++;
+						//cout << initSize << endl;
 					}
 					else
 					{
+						Counts--;
 						GOTO got;
 						got.left = (*iteral);
 						got.mid = (*it1);
 						got.right = StateFind(tem);
 						gotoTable.push_back(got);
 					}
+
 				}
+				else
+					Counts--;
 			}
 			for (auto it2 = tokenVector.begin(); it2 != tokenVector.end(); ++it2)//ÖÕ½á·û
 			{
 				LRState tem = GOTOLR((*iteral), (*it2));
 				if (tem.item.size() != 0)
 				{
-					LRState tem = GOTOLR((*iteral), (*it2));
-					if (tem.item.size() != 0)
-					{
+					
 						if (!StateCompare(tem))
 						{
 							GOTO got;
@@ -150,19 +155,22 @@ void GenLRTable()
 							got.right = tem;
 							gotoTable.push_back(got);
 							stateTable.push_back(tem);
-							iteral = stateTable.begin();
+							iteral = stateTable.begin()+ tet;
 							initSize++;
 						}
 						else
 						{
+							Counts--;
 							GOTO got;
 							got.left = (*iteral);
 							got.mid = (*it2);
 							got.right = StateFind(tem);
 							gotoTable.push_back(got);
 						}
-					}
+					
 				}
+				else
+					Counts--;
 			}
 		}
 	} while (initSize > 0);
@@ -180,11 +188,17 @@ bool StateCompare(LRState state)
 
 LRState StateFind(LRState state)
 {
+	//cout << "B";
 	for (auto iteral = stateTable.begin(); iteral != stateTable.end(); ++iteral)
 	{
 		if (itemscmp(state.item, (*iteral).item))
+		{
+			//cout << "C\n";
 			return (*iteral);
+		}
+			
 	}
+	
 }
 
 bool whethercontain(string& str, vector<string>& v1)

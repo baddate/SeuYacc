@@ -1,5 +1,6 @@
-﻿  ParsingFile.cpp
+﻿  ToLR.cpp
 C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(21): warning C4091: 'typedef ': ignored on left of 'LRItem' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(38): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
-C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(55): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(33): warning C4091: 'typedef ': ignored on left of 'LRState' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\Declaration.h(102): warning C4091: 'typedef ': ignored on left of 'GOTO' when no variable is declared
+C:\Users\badga\Desktop\SeuYacc\SeuYacc\ToLR.cpp(202): warning C4715: 'StateFind': not all control paths return a value
   SeuYacc.vcxproj -> C:\Users\badga\Desktop\SeuYacc\Debug\SeuYacc.exe

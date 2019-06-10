@@ -24,7 +24,7 @@ void genFile()
 	out.close();
 
 	//生成 y.tab.c文件
-	out.open("y.tab.c", ios::out);
+	out.open("y.tab.cpp", ios::out);
 
 	if (!out)
 	{
@@ -33,11 +33,17 @@ void genFile()
 	out << "#include <stdio.h>" << endl;
 	out << "#include <stdlib.h>" << endl;
 	out << "#include <assert.h>" << endl;
-	out << "#include <stack.h>" << endl;
-	out << "#include <string.h>" << endl;
+	out << "#include <stack>" << endl;
+	out << "#include <string>" << endl;
+	out << "#include <fstream>" << endl;
+	out << "#include <iostream>" << endl;
+	out << "#include <vector>" << endl;
+	out << "using namespace std;" << endl;
 	for (const auto& s : functionVector) {
 		out << s << endl;
 	}
+	out << "int main() " << endl;
+	out << "{" << endl;
 	//读lex输出
 	out << "ifstream lex_out;" << endl;
 	out << "lex_out.open(\"filename\", ios::in);" << endl;
@@ -50,7 +56,7 @@ void genFile()
 
 	out << "stack<int> stateStack;" << endl;//状态栈
 	out << "stack<string> symbolStack;" << endl;//符号栈
-	out << "stateStack.push(0)" << endl;//初始化
+	out << "stateStack.push(0);" << endl;//初始化
 	out << "int cnt = 0;" << endl;
 
 	out << "do {" << endl;
@@ -60,7 +66,7 @@ void genFile()
 	out << "{" << endl;
 	out << "if (!(*iteral)[stateStack.top() + 1].compare(\"accept\"))" << endl;
 		out << "	break;" << endl;
-		out << "if (!(*iteral)[stateStack.top() + 1].front().compare("s"))" << endl;
+		out << "if ((*iteral)[stateStack.top() + 1].front() !=\'s\')" << endl;
 		out << "{" << endl;
 		out << "	string s = (*iteral)[stateStack.top() + 1];" << endl;
 		out << "	int i = atoi(s.erase(0, 1).c_str());" << endl;
@@ -83,7 +89,7 @@ void genFile()
 		out << "		i--;" << endl;
 		out << "	}" << endl;
 		out << "	string j = s1.erase(0, offset);" << endl;//产生式的左边字符串
-		out << "	int t = symbolStack.top(); << endl;" << endl;//栈顶
+		out << "	int t = stateStack.top();" << endl;//栈顶
 		out << "	for (auto itera = AnalyTable.begin(); itera != AnalyTable.end(); ++itera)" << endl;
 		out << "	{" << endl;
 		out << "		if (!(*itera).front().compare(j))" << endl;
@@ -99,4 +105,6 @@ void genFile()
 		out << "}" << endl;
 		out << "cnt++;" << endl;
 		out << "} while (cnt != Lex_OUT.size());" << endl;
+		out << "return 0;" << endl;
+		out << "}" << endl;
 }

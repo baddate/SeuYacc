@@ -16,9 +16,21 @@ int main()
 	GenLRTable();
 	InitTable();
 	SetTable();
-	//genFile();
+	genFile();
+	ofstream analy;
+	analy.open("AnalyTable.txt", ios::out);
 	cout << endl;
-
+	///
+	analy << AnalyTable.front().size() << endl;
+	analy << AnalyTable.size() << endl;
+	for (auto iteral = AnalyTable.begin(); iteral != AnalyTable.end(); ++iteral)
+	{
+		for (auto itera = iteral->begin(); itera != iteral->end(); ++itera)
+		{
+			analy << *itera << endl;
+		}
+	}
+	///
 	cout << stateTable.begin()->item.size()<<"  |  "<< AnalyTable.front().size() << endl;
 	cout << stateTable.size() << "  sssssss  "<< endl;
 	for (auto iteral = gotoTable.begin(); iteral != gotoTable.end(); ++iteral)
@@ -26,6 +38,8 @@ int main()
 		cout << iteral->left.stateCount << " " << iteral->mid << " " << iteral->right.stateCount;
 		cout << endl;
 	}
+
+
 	ifstream lex_out;
 	lex_out.open("test.l", ios::in);
 	string temp;
