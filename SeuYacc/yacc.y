@@ -1,7 +1,7 @@
 %token IDENTIFIER
 %token CHAR SHORT INT LONG SIGNED UNSIGNED FLOAT DOUBLE VOID
 %token BOOL LE_OP NUMBER GE_OP EQ_OP NE_OP IF WHILE FOR ELSE 
-%token DELIM  + - * / { } ( ) > <
+%token DELIM  '+' '-' '*' '/' '{' '}' '(' ')' '>' '<'
 
 %start translation_unit
 %%
@@ -25,7 +25,7 @@ declaration
 	;
 
 translation_unit
-	: type_specifier IDENTIFIER ( ) { statements }
+	: type_specifier IDENTIFIER '(' ')' '{' statements '}'
 	;
 
 statements
@@ -52,37 +52,37 @@ assignment
 
 expression
 	: term 
-	| term + term
-	| term - term
+	| term '+' term
+	| term '-' term
 	;
 
 term
 	: factor
-	| factor * factor
-	| factor / factor
+	| factor '*' factor
+	| factor '/' factor
 	;
 
 factor
 	: IDENTIFIER
 	| NUMBER
-	| ( expression )
+	| '(' expression ')'
 	;
 
 if_s
-	: IF ( expression relationcha expression ) { statements }
-	| IF ( expression relationcha expression ) { statements } ELSE { statements }
+	: IF '(' expression relationcha expression ')' '{' statements '}'
+	| IF '(' expression relationcha expression ')' '{' statements '}' ELSE '{' statements '}'
 	;
 while_s
-	: WHILE ( expression relationcha expression ) { statements }
+	: WHILE '(' expression relationcha expression ')' '{' statements '}'
 	;
 
 for_s
-	: FOR ( assignment DELIM expression relationcha expression DELIM assignment ) { statements }
+	: FOR '(' assignment DELIM expression relationcha expression DELIM assignment ')' '{' statements '}'
 	;
 
 relationcha
-	: > 
-	| < 
+	: '>' 
+	| '<' 
 	| EQ_OP
 	| LE_OP
 	| GE_OP 
