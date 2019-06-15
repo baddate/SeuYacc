@@ -30,9 +30,10 @@ void calcFirst(string symbol, set<string> &temp)
 			else//·ÇÖÕ½á·û
 			{
 				//cout << "F" << endl;
-				temp.insert((*iteral).second.front());
+				
 				if (temp.find((*iteral).second.front())!= temp.end())
 					break;
+				temp.insert((*iteral).second.front());
 				cout << "F" << endl;
 				calcFirst((*iteral).second.front(), temp);
 			}

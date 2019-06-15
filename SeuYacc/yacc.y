@@ -27,7 +27,7 @@ translation_unit
 	;
 
 statements
-	: statement statements
+	: statement statement statement
 	| statement
 	;
 
@@ -36,16 +36,16 @@ statement
 	| int_s
 	| while_s
 	| for_s
-	| assignment
 	;
 
 int_s
 	: type_specifier assignment ';'
+	| type_specifier IDENTIFIER ';'
 	;
 
 assignment
 	: IDENTIFIER '=' expression
-	| IDENTIFIER
+
 	;
 
 expression
