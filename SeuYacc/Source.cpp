@@ -16,7 +16,7 @@ int main()
 	GenLRTable();
 	InitTable();
 	SetTable();
-	genFile();
+	//genFile();
 	ofstream analy;
 	analy.open("AnalyTable.txt", ios::out);
 	cout << endl;
@@ -49,9 +49,9 @@ int main()
 		cout << temp;
 		Lex_OUT.push_back(temp);
 	} while (!lex_out.eof());
+	Lex_OUT.push_back("$");
 	stack<int> stateStack;
 	stack<string> symbolStack;
-	symbolStack.push("$");
 	stateStack.push(0);
 	int cnt = 0;
 	do {
@@ -61,7 +61,11 @@ int main()
 			if (!(*iteral).front().compare(Lex_OUT[cnt]))
 			{
 				if (!(*iteral)[stateStack.top() + 1].compare("accept"))
+				{
+					cout << "Successful!!!!!!!!!!!!!!!!" << endl;
 					break;
+				}
+					
 				if (!(*iteral)[stateStack.top() + 1].find("s"))
 				{
 					string s = (*iteral)[stateStack.top() + 1];
@@ -75,8 +79,9 @@ int main()
 				}
 				else
 				{
-					cout << "test";
-					string s, s1 = (*iteral)[stateStack.top() + 1];
+					cout << "test" << endl;
+					string s1 = (*iteral)[stateStack.top() + 1];
+					string s = s1;
 					int offset = s.find_first_of("#", 0);
 					int i = atoi(s.erase(offset, s.size() - offset).c_str());
 					while (i != 0)
@@ -85,7 +90,7 @@ int main()
 						stateStack.pop();
 						i--;
 					}
-					string j = s1.erase(0, offset);
+					string j = s1.erase(0, offset+1);
 					int t = stateStack.top();
 					for (auto itera = AnalyTable.begin(); itera != AnalyTable.end(); ++itera)
 					{
@@ -94,11 +99,15 @@ int main()
 							string temp = (*itera)[t+1];
 							i = atoi(temp.erase(0, 1).c_str());
 							stateStack.push(i);
+							symbolStack.push(j);
 							cout << j << endl;
 						}
 					}
+					cnt--;
 				}
+				break;
 			}
+			
 		}
 		cnt++;
 	} while (cnt != Lex_OUT.size());

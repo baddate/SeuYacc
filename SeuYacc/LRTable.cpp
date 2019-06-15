@@ -11,16 +11,16 @@ void InitTable()
 {
 	for (auto iteral = tokenVector.begin(); iteral != tokenVector.end(); ++iteral)
 	{
-		vector<string> temp(Counts+1);
+		vector<string> temp(Counts+2);
 		temp[0]=(*iteral);
 		AnalyTable.push_back(temp);
 	}
-	vector<string> temp(Counts+1);
+	vector<string> temp(Counts+2);
 	temp[0]="$";
 	AnalyTable.push_back(temp);
 	for (auto iteral = pdnLeft.begin(); iteral != pdnLeft.end(); ++iteral)
 	{
-		vector<string> temp(Counts+1);
+		vector<string> temp(Counts+2);
 		temp[0]=(*iteral);
 		AnalyTable.push_back(temp);
 	}

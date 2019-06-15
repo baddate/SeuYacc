@@ -20,6 +20,7 @@ int parsingFile(const string& fileName)
 	{
 		if (temp == "%token")
 			in >> temp;
+		//cout << temp << endl;
 		tokenVector.push_back(temp);
 		in >> temp;
 	}
@@ -37,6 +38,7 @@ int parsingFile(const string& fileName)
 		{
 			in >> temp;
 			startExp = temp;
+			
 			in >> temp;
 		}
 //	}

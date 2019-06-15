@@ -16,9 +16,10 @@ extern FirstMap firstMap;//所有计算出的符号first集
 extern string startExp;//开始符号
 LRState StateFind(LRState state);
 bool inStateTable(vector<LRItem> items1, LRItem item);
+bool gotoCompare(GOTO got);
 int genCount()
 {
-	return Counts++;
+	return ++Counts;
 }
 
 void Closure(LRState& state)
@@ -40,10 +41,16 @@ void Closure(LRState& state)
 					if ((*iteral).point != (*iteral).pdn.second.size() && !iteral->pdn.second[(*iteral).point].compare((*temp).first))
 					{
 						LRItem test;
-						for (auto tmp = firstMap[(*iteral).pdn.second[(*iteral).point]].begin();
-							tmp != firstMap[(*iteral).pdn.second[(*iteral).point]].end(); ++tmp)
+						if ((*iteral).point == (*iteral).pdn.second.size()-1)
+							test.predictSymbol=iteral->predictSymbol;
+							
+						else
 						{
-							test.predictSymbol.push_back((*tmp));
+							for (auto tmp = firstMap[(*iteral).pdn.second[(*iteral).point + 1]].begin();
+								tmp != firstMap[(*iteral).pdn.second[(*iteral).point + 1]].end(); ++tmp)
+							{
+								test.predictSymbol.push_back((*tmp));
+							}
 						}
 						test.point = 0;
 						test.pdn = (*temp);
@@ -105,6 +112,7 @@ void GenLRTable()
 	stateTable.push_back(temp);
 	do
 	{
+
 		initSize = 0;
 		//cout << initSize << " ";
 		for (auto iteral = stateTable.begin(); iteral != stateTable.end(); ++iteral)
@@ -125,16 +133,18 @@ void GenLRTable()
 						stateTable.push_back(tem);
 						iteral = stateTable.begin() + tet;
 						initSize++;
-						//cout << initSize << endl;
+						cout << initSize << endl;
 					}
 					else
 					{
+
 						Counts--;
 						GOTO got;
 						got.left = (*iteral);
 						got.mid = (*it1);
 						got.right = StateFind(tem);
-						gotoTable.push_back(got);
+						if(!gotoCompare(got))
+							gotoTable.push_back(got);
 					}
 
 				}
@@ -165,7 +175,8 @@ void GenLRTable()
 							got.left = (*iteral);
 							got.mid = (*it2);
 							got.right = StateFind(tem);
-							gotoTable.push_back(got);
+							if(!gotoCompare(got))
+								gotoTable.push_back(got);
 						}
 					
 				}
@@ -262,6 +273,16 @@ bool inStateTable(vector<LRItem> items1, LRItem item)
 	for (auto iteral = items1.begin(); iteral != items1.end(); ++iteral)
 	{
 		if (ItemCompare(*iteral, item))
+			return true;
+	}
+	return false;
+}
+
+bool gotoCompare(GOTO got)
+{
+	for (auto iteral = gotoTable.begin(); iteral != gotoTable.end(); ++iteral)
+	{
+		if (iteral->left.stateCount == got.left.stateCount && !iteral->mid.compare(got.mid) && iteral->right.stateCount == got.right.stateCount)
 			return true;
 	}
 	return false;

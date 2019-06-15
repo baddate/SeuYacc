@@ -56,6 +56,7 @@ void genFile()
 
 	out << "stack<int> stateStack;" << endl;//×´Ì¬Õ»
 	out << "stack<string> symbolStack;" << endl;//·ûºÅÕ»
+	out << "symbolStack.push(\"$\");" << endl;
 	out << "stateStack.push(0);" << endl;//³õÊ¼»¯
 	out << "int cnt = 0;" << endl;
 

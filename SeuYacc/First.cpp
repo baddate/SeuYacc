@@ -52,6 +52,15 @@ void mapFirst()
 		pa.second = temp;
 		firstMap.insert(pa);
 	}
+	for (auto iteral = tokenVector.begin(); iteral != tokenVector.end(); ++iteral)
+	{
+		set<string> temp;
+		pair<string, set<string>> pa;
+		pa.first = *iteral;
+		temp.insert(*iteral);
+		pa.second = temp;
+		firstMap.insert(pa);
+	}
 	cout << "firstMapSize:" << firstMap.size() << endl;
 }
 
