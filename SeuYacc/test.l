@@ -1,4 +1,4 @@
-INT IDENTIFIER ( )
-{
-	INT IDENTIFIER DELIM
-}
+INT MAIN '(' ')'
+'{'
+	INT IDENTIFIER ';'
+'}'
