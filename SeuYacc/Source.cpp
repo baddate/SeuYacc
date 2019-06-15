@@ -46,9 +46,10 @@ int main()
 	vector<string> Lex_OUT;
 	do {
 		lex_out >> temp;
-		cout << temp;
+		cout << temp << " ";
 		Lex_OUT.push_back(temp);
 	} while (!lex_out.eof());
+	cout << endl;
 	Lex_OUT.push_back("$");
 	stack<int> stateStack;
 	stack<string> symbolStack;
@@ -79,7 +80,7 @@ int main()
 				}
 				else
 				{
-					cout << "test" << endl;
+					//cout << "test" << endl;
 					string s1 = (*iteral)[stateStack.top() + 1];
 					string s = s1;
 					int offset = s.find_first_of("#", 0);

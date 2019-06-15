@@ -1,4 +1,4 @@
-INT MAIN '(' ')'
+INT IDENTIFIER '(' ')'
 '{'
 	INT IDENTIFIER ';'
 '}'

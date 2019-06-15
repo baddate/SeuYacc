@@ -1,6 +1,6 @@
 %token IDENTIFIER
 %token CHAR SHORT INT LONG SIGNED UNSIGNED FLOAT DOUBLE VOID
-%token BOOL LE_OP NUMBER GE_OP EQ_OP NE_OP MAIN
+%token BOOL LE_OP NUMBER GE_OP EQ_OP NE_OP
 %token ';' '+' '-' '*' '/' '{' '}' '(' ')' '>' '<' '='
 
 %start translation_unit
@@ -23,7 +23,7 @@ type_specifier
 
 
 translation_unit
-	: INT MAIN '(' ')' '{' statements '}'
+	: type_specifier IDENTIFIER '(' ')' '{' statements '}'
 	;
 
 statements
